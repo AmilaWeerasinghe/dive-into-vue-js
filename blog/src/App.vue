@@ -1,6 +1,6 @@
 <template>
 <Home/>
-  <img alt="Vue logo" src="./assets/logo.png">
+<Input/>
   <HelloWorld msg="Welcome arimac Vue.js App"/>
   <Home/>
 </template>
@@ -8,12 +8,14 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import Home from './components/Home.vue'
+import Input from './components/Input.vue'
 
 export default {
   name: 'App',
   components: {
     HelloWorld,
-    Home
+    Home,
+    Input
   }
 }
 </script>
