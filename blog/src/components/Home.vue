@@ -9,6 +9,9 @@
 
 <button v-on:click="getalert()">Click</button>
 <button v-on:click="increase()">Click Count</button>
+<h3 v-if="show">Condition in vue is true</h3>
+<h3 v-else>Condition in vue is false</h3>
+<button v-on:click="show=!show">Click to change the condition</button>
 </template>
 
 <script>
@@ -19,7 +22,8 @@ export default{
             name:"amila",
             email:"amila@arimaclanka",
             count:0,
-            data:0
+            data:0,
+            show:true
         }
     },
     methods:{
