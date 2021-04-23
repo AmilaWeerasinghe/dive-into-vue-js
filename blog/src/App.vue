@@ -1,8 +1,8 @@
 <template>
+  <HelloWorld msg="Welcome arimac Vue.js App"/>
 <Home/>
 <Input/>
-  <HelloWorld msg="Welcome arimac Vue.js App"/>
-  <Home/>
+
 </template>
 
 <script>
