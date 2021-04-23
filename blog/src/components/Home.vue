@@ -1,11 +1,11 @@
 <template>
 <h1>Home Component</h1>
-<h1>Name:{{name}}</h1>
-<h1>Email:{{getName()}}</h1>
-<h1>Email:{{getData().email}}</h1>
-<h1>{{count}}</h1>
+<h2>Name:{{name}}</h2>
+<h2>Email:{{getName()}}</h2>
+<h3>Email:{{getData().email}}</h3>
+<h4>{{count}}</h4>
 <input type="text" v-model="data"/>
-<h2>two way binding :{{data}}</h2>
+<h4>two way binding :{{data}}</h4>
 
 <button v-on:click="getalert()">Click</button>
 <button v-on:click="increase()">Click Count</button>
