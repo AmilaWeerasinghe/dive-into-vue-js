@@ -1,4 +1,5 @@
 <template>
+<Child :name="name" :getName="getName"/>
 <h1>Home Component</h1>
 <h2>Name:{{name}}</h2>
 <h2>Email:{{getName()}}</h2>
@@ -17,9 +18,11 @@
 {{item}}
 </li>
 </ul>
+
 </template>
 
 <script>
+import Child from './Child.vue'
 export default {
     name: "Home",
     data() {
@@ -36,6 +39,9 @@ export default {
                 "javascript"
                 ]
         }
+    },
+    components:{
+        Child
     },
     methods: {
         getName() {
