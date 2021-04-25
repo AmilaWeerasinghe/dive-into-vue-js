@@ -23,6 +23,7 @@
       <User :data="item" :getalertUser="getalertUser" />
     </li>
   </ul>
+  <div v-html="tag"></div>
 </template>
 
 <script>
@@ -38,6 +39,7 @@ export default {
       data: 0,
       show: true,
       technology: ["java", "html", "c", "javascript"],
+      tag: "<h3>Html binding tag</h3>",
       users: [
         {
           name: "Amila",
