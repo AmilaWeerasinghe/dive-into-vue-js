@@ -1,23 +1,22 @@
 <template>
-  <HelloWorld msg="Welcome arimac Vue.js App"/>
-<Home/>
-<Input/>
-
+  <HelloWorld msg="Welcome arimac Vue.js App" />
+  <Home />
+  <Input />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import Home from './components/Home.vue'
-import Input from './components/Input.vue'
+import HelloWorld from "./components/HelloWorld.vue";
+import Home from "./components/Home.vue";
+import Input from "./components/Input.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     HelloWorld,
     Home,
-    Input
-  }
-}
+    Input,
+  },
+};
 </script>
 
 <style>

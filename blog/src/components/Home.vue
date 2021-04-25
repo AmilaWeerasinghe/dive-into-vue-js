@@ -24,6 +24,10 @@
     </li>
   </ul>
   <div v-html="tag"></div>
+  <h2 class="staticClass" :class="{ green: colorfull }">
+    Dynamic class binding
+  </h2>
+  <button v-on:click="colorfull = !colorfull">Apply style</button>
 </template>
 
 <script>
@@ -40,6 +44,7 @@ export default {
       show: true,
       technology: ["java", "html", "c", "javascript"],
       tag: "<h3>Html binding tag</h3>",
+      colorfull: false,
       users: [
         {
           name: "Amila",
@@ -86,5 +91,14 @@ export default {
 <style scoped>
 h1 {
   color: orange;
+}
+.green {
+  background-color: green;
+  width: 200px;
+  padding: 100px;
+  color: #fff;
+}
+.staticClass {
+  color: blue;
 }
 </style>
