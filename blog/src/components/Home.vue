@@ -67,9 +67,12 @@
     name="technology"
     value="C"
     v-model="form.technology"
-  />
+  /><br />
   <button type="button" v-on:click="login">Submit</button>
   <p>{{ form }}</p>
+  <ul>
+    <li v-for="item in error" v-bind:key="item">{{ item }} is not valid</li>
+  </ul>
 </template>
 
 <script>
@@ -82,6 +85,7 @@ export default {
       name: "amila",
       email: "amila@arimaclanka",
       count: 0,
+      error: [],
       data: 0,
       show: true,
       technology: ["java", "html", "c", "javascript"],
@@ -117,6 +121,17 @@ export default {
   methods: {
     getName() {
       return "Amila@gmail";
+    },
+    login() {
+      this.error = [];
+      for (const item in this.form) {
+        if (this.form[item] === "" || this.form[item].length === 0) {
+          this.error.push(item);
+        }
+        if (this.error.length === 0) {
+          alert("Data has been submitted");
+        }
+      }
     },
     getData() {
       return {
