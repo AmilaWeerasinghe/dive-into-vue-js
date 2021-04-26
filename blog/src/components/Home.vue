@@ -39,6 +39,35 @@
     placeholder="enter password"
     v-model="form.password"
   /><br />
+  <select v-model="form.country">
+    <option>India</option>
+    <option>USA</option>
+  </select>
+  <br />
+  <label>Male</label>
+  <input type="radio" name="gender" value="male" v-model="form.gender" />
+  <label>Female</label>
+  <input
+    type="radio"
+    name="gender"
+    value="female"
+    v-model="form.gender"
+  /><br />
+  <h3>Technology</h3>
+  <label>Java</label>
+  <input
+    type="checkbox"
+    name="technology"
+    value="Java"
+    v-model="form.technology"
+  />
+  <label>C</label>
+  <input
+    type="checkbox"
+    name="technology"
+    value="C"
+    v-model="form.technology"
+  />
   <button type="button" v-on:click="login">Submit</button>
   <p>{{ form }}</p>
 </template>
