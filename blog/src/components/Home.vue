@@ -27,7 +27,9 @@
   <h2 class="staticClass" :class="{ green: colorfull }">
     Dynamic class binding
   </h2>
-  <button v-on:click="colorfull = !colorfull">Apply style</button>
+  <button v-on:click="colorfull = !colorfull">Apply style</button><br />
+  <input type="text" ref="input" />
+  <button v-on:click="refData">Ref Click</button>
 </template>
 
 <script>
@@ -83,6 +85,11 @@ export default {
     },
     increase() {
       this.count = this.count + 1;
+    },
+    refData() {
+      this.$refs.input.focus();
+      this.$refs.input.value = "AMila ref";
+      this.$refs.input.style.color = "red";
     },
   },
 };
