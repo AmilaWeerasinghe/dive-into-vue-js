@@ -30,6 +30,17 @@
   <button v-on:click="colorfull = !colorfull">Apply style</button><br />
   <input type="text" ref="input" />
   <button v-on:click="refData">Ref Click</button>
+  <h2>A Complete form</h2>
+  <label>Email</label>
+  <input type="text" placeholder="enter email" v-model="form.email" /><br />
+  <label>Password</label>
+  <input
+    type="text"
+    placeholder="enter password"
+    v-model="form.password"
+  /><br />
+  <button type="button" v-on:click="login">Submit</button>
+  <p>{{ form }}</p>
 </template>
 
 <script>
@@ -47,6 +58,13 @@ export default {
       technology: ["java", "html", "c", "javascript"],
       tag: "<h3>Html binding tag</h3>",
       colorfull: false,
+      form: {
+        email: "",
+        password: "",
+        gender: "",
+        country: "",
+        technology: [],
+      },
       users: [
         {
           name: "Amila",
