@@ -2,12 +2,14 @@
   <HelloWorld msg="Welcome arimac Vue.js App" />
   <Home />
   <Input />
+  <NewUser name="Amila from App . vue" />
 </template>
 
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
 import Home from "./components/Home.vue";
 import Input from "./components/Input.vue";
+import NewUser from "./components/NewUser.vue";
 
 export default {
   name: "App",
@@ -15,6 +17,7 @@ export default {
     HelloWorld,
     Home,
     Input,
+    NewUser,
   },
 };
 </script>
