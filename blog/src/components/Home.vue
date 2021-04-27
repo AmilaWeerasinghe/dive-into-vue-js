@@ -73,6 +73,9 @@
   <ul>
     <li v-for="item in error" v-bind:key="item">{{ item }} is not valid</li>
   </ul>
+  <button v-on:click="watchCount = watchCount + 1">Watch Count +</button>
+  <button v-on:click="watchCount = watchCount - 1">Watch Count -</button>
+  <p>{{ watchCount }}</p>
 </template>
 
 <script>
@@ -87,6 +90,7 @@ export default {
       count: 0,
       error: [],
       data: 0,
+      watchCount: 0,
       show: true,
       technology: ["java", "html", "c", "javascript"],
       tag: "<h3>Html binding tag</h3>",
@@ -113,6 +117,13 @@ export default {
         },
       ],
     };
+  },
+  watch: {
+    watchCount(val, preval) {
+      if (val > 10 && val > preval) {
+        alert("Stop increasing count");
+      }
+    },
   },
   components: {
     Child,
