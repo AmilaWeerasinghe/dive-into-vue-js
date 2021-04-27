@@ -76,11 +76,16 @@
   <button v-on:click="watchCount = watchCount + 1">Watch Count +</button>
   <button v-on:click="watchCount = watchCount - 1">Watch Count -</button>
   <p>{{ watchCount }}</p>
+  <NewChild>
+    <template v-slot:header><h1>New component slot header</h1></template>
+    <template v-slot:footer><h1>New component slot footer</h1></template>
+  </NewChild>
 </template>
 
 <script>
 import Child from "./Child.vue";
 import User from "./User.vue";
+import NewChild from "./NewChild.vue";
 export default {
   name: "Home",
   data() {
@@ -128,6 +133,7 @@ export default {
   components: {
     Child,
     User,
+    NewChild,
   },
   methods: {
     getName() {
