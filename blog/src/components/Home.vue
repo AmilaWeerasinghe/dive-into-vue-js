@@ -77,19 +77,32 @@
   <button v-on:click="watchCount = watchCount - 1">Watch Count -</button>
   <p>{{ watchCount }}</p>
   <NewChild>
-    <template v-slot:header><h1>New component slot header</h1></template>
-    <template v-slot:footer><h1>New component slot footer</h1></template>
+    <template v-slot:header>
+      <h1>New component slot header</h1>
+    </template>
+    <template v-slot:footer>
+      <h1>New component slot footer</h1>
+    </template>
   </NewChild>
+  <h3>Dynamic Component</h3>
+  <button @click="tab = 'Java'">Java</button>
+  <button @click="tab = 'Php'">Php</button>
+  <button @click="tab = 'Node'">Node</button>
+  <component :is="tab" />
 </template>
 
 <script>
 import Child from "./Child.vue";
 import User from "./User.vue";
 import NewChild from "./NewChild.vue";
+import Java from "./Java.vue";
+import Node from "./Node.vue";
+import Php from "./Php.vue";
 export default {
   name: "Home",
   data() {
     return {
+      tab: "Java",
       name: "amila",
       email: "amila@arimaclanka",
       count: 0,
@@ -134,6 +147,9 @@ export default {
     Child,
     User,
     NewChild,
+    Java,
+    Php,
+    Node,
   },
   methods: {
     getName() {
@@ -178,12 +194,14 @@ export default {
 h1 {
   color: orange;
 }
+
 .green {
   background-color: green;
   width: 200px;
   padding: 100px;
   color: #fff;
 }
+
 .staticClass {
   color: blue;
 }
