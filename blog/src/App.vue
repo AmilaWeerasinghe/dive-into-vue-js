@@ -1,4 +1,8 @@
 <template>
+  <router-view></router-view>
+  <router-link to="/">Home page</router-link>
+  <router-link to="/login">Login page</router-link>
+  <router-link to="/about">About page</router-link>
   <HelloWorld msg="Welcome arimac Vue.js App" />
   <Home />
   <Input />
