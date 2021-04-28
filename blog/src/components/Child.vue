@@ -1,6 +1,6 @@
 <template>
   <h2>Child Component</h2>
-  <h2>{{ name }} :{{ getName() }}</h2>
+  <h2 ref="child">{{ name }} :{{ getName() }}</h2>
 </template>
 <script>
 export default {
@@ -8,6 +8,12 @@ export default {
   props: {
     name: String,
     getName: Function,
+  },
+  beforeUnmount() {
+    console.warn("before Unmount", this.$refs["child"]);
+  },
+  unmounted() {
+    "unomounted";
   },
 };
 </script>

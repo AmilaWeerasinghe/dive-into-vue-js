@@ -1,5 +1,6 @@
 <template>
-  <Child :name="name" :getName="getName" />
+  <Child :name="name" :getName="getName" v-if="mount" />
+  <button v-on:click="mount = false">Unmount Child</button>
   <h1>Home Component</h1>
   <h2>Name:{{ name }}</h2>
   <h2>Email:{{ getName() }}</h2>
@@ -110,6 +111,7 @@ export default {
       data: 0,
       watchCount: 0,
       show: true,
+      mount: true,
       technology: ["java", "html", "c", "javascript"],
       tag: "<h3>Html binding tag</h3>",
       colorfull: false,
