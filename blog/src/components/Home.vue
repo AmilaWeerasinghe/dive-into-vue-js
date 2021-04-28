@@ -4,7 +4,7 @@
   <h2>Name:{{ name }}</h2>
   <h2>Email:{{ getName() }}</h2>
   <h3>Email:{{ getData().email }}</h3>
-  <h4>{{ count }}</h4>
+  <h4 ref="counter">{{ count }}</h4>
   <input type="text" v-model="data" />
   <h4>two way binding :{{ data }}</h4>
 
@@ -163,6 +163,12 @@ export default {
   },
   mounted() {
     console.warn("mounted method", this.$el);
+  },
+  beforeUpdate() {
+    console.warn("before update", this.$refs["counter"].textContent);
+  },
+  updated() {
+    console.warn("updated", this.$refs["counter"].textContent);
   },
   methods: {
     getName() {
