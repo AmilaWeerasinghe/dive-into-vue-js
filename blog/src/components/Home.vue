@@ -158,6 +158,12 @@ export default {
     alert("Created life cycle method is called");
     this.name = "Amila Weerasinghe";
   },
+  beforeMount() {
+    console.warn("before Mount method", this.$el);
+  },
+  mounted() {
+    console.warn("mounted method", this.$el);
+  },
   methods: {
     getName() {
       return "Amila@gmail";
