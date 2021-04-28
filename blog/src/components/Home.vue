@@ -151,6 +151,13 @@ export default {
     Php,
     Node,
   },
+  beforeCreate() {
+    alert("before created life cycle method is called");
+  },
+  created() {
+    alert("Created life cycle method is called");
+    this.name = "Amila Weerasinghe";
+  },
   methods: {
     getName() {
       return "Amila@gmail";
