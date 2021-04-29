@@ -9,9 +9,13 @@
   <Home />
   <Input />
   <NewUser name="Amila from App . vue" />
+  <p v-for="item in list" :key="item.id">
+    {{ item.id }}---{{ item.email }}---{{ item.first_name }}
+  </p>
 </template>
 
 <script>
+import axios from "axios";
 import HelloWorld from "./components/HelloWorld.vue";
 import Home from "./components/Home.vue";
 import Input from "./components/Input.vue";
@@ -24,6 +28,16 @@ export default {
     Home,
     Input,
     NewUser,
+  },
+  data() {
+    return {
+      list: [],
+    };
+  },
+  async mounted() {
+    let result = await axios.get("https://reqres.in/api/users?page=1");
+    console.warn(result.data.data);
+    this.list = result.data.data;
   },
 };
 </script>
