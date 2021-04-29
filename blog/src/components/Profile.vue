@@ -13,6 +13,7 @@ export default {
   },
   mounted() {
     const route = useRoute();
+    console.warn(route.params.name);
     this.profile = route.params.name;
   },
 };

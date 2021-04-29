@@ -4,6 +4,6 @@
 
 <script>
 export default {
-  name: "Java",
+  name: "Node",
 };
 </script>
