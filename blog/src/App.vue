@@ -3,6 +3,8 @@
   <router-link to="/">Home page</router-link>
   <router-link to="/login">Login page</router-link>
   <router-link to="/about">About page</router-link>
+  <router-link to="/profile/amila">Amila's Profile page</router-link><br />
+  <router-link to="/profile/arimac">Arimac Profile page</router-link>
   <HelloWorld msg="Welcome arimac Vue.js App" />
   <Home />
   <Input />
