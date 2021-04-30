@@ -9,9 +9,12 @@
   <Home />
   <Input />
   <NewUser name="Amila from App . vue" />
-  <p v-for="item in list" :key="item.id">
-    {{ item.id }}---{{ item.email }}---{{ item.first_name }}
-  </p>
+  <h3>User's data from API</h3>
+  <ul class="item" v-for="item in list" :key="item.id">
+    <li>{{ item.id }}</li>
+    <li>{{ item.email }}</li>
+    <li><img :src="item.avatar" /></li>
+  </ul>
 </template>
 
 <script>
@@ -50,5 +53,13 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.item {
+  display: flex;
+}
+.item li {
+  display: inline-block;
+  border: 1px solid;
+  width: 180px;
 }
 </style>
