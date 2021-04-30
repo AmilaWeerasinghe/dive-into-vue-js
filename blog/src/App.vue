@@ -15,6 +15,26 @@
     <li>{{ item.email }}</li>
     <li><img :src="item.avatar" /></li>
   </ul>
+
+  <h2>Post Component</h2>
+  <div>
+    <form @submit="postData" method="post">
+      <input
+        type="text"
+        name="author"
+        v-model="posts.author"
+        placeholder="author"
+      /><br />
+      <input
+        type="text"
+        name="title"
+        v-model="posts.title"
+        placeholder="title"
+      /><br />
+      <button type="submit">Post</button>
+    </form>
+  </div>
+  {{ posts }}
 </template>
 
 <script>
@@ -35,12 +55,36 @@ export default {
   data() {
     return {
       list: [],
+      posts: {
+        author: "",
+        title: "",
+      },
     };
   },
   async mounted() {
     let result = await axios.get("https://reqres.in/api/users?page=1");
     console.warn(result.data.data);
     this.list = result.data.data;
+  },
+  async created() {
+    // Simple POST request with a JSON body using axios
+    const article = { title: "Vue POST Request Example" };
+    axios
+      .post("https://reqres.in/api/articles", article)
+      .then((response) => (this.articleId = response.data.id));
+  },
+  methods: {
+    postData() {
+      console.warn(this.posts);
+      const article = { title: "Vue POST Request Example" };
+      axios
+        .post("https://reqres.in/api/articles", article)
+        .then((response) => (this.articleId = response.data.id));
+      //this.axios.post("http://localhost:3000/posts/").then((result) => {
+      // console.warn(result);
+      // });
+      //e.preventDefault;
+    },
   },
 };
 </script>
