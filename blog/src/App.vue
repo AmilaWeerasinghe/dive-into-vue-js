@@ -35,6 +35,8 @@
     </form>
   </div>
   {{ posts }}
+  <CreatePost></CreatePost>
+  <PostComponent></PostComponent>
 </template>
 
 <script>
@@ -43,6 +45,8 @@ import HelloWorld from "./components/HelloWorld.vue";
 import Home from "./components/Home.vue";
 import Input from "./components/Input.vue";
 import NewUser from "./components/NewUser.vue";
+import CreatePost from "./components/CreatePost.vue";
+import PostComponent from "./components/PostComponent.vue";
 
 export default {
   name: "App",
@@ -51,6 +55,8 @@ export default {
     Home,
     Input,
     NewUser,
+    CreatePost,
+    PostComponent,
   },
   data() {
     return {

@@ -1,21 +1,17 @@
 <template>
-  <h2>Post Component</h2>
-  <div>
-    <form @submit="postData" method="POST">
-      <input type="text" name="author" v-model="posts.author" />
-      <input type="text" name="title" v-model="posts.title" />
-    </form>
-  </div>
-
   <div>
     <form @submit.prevent="createPost">
       <div>
-        <label for="author">author</label>
-        <input type="text" id="author" v-model="formData.author" />
+        <label for="userId">Post User ID</label>
+        <input type="text" id="userId" v-model="formData.userId" />
       </div>
       <div>
         <label for="title">Post Title</label>
         <input type="text" id="title" v-model="formData.title" />
+      </div>
+      <div>
+        <label for="body">Post Body</label>
+        <input type="text" id="body" v-model="formData.body" />
       </div>
       <button>Create Post</button>
     </form>
@@ -24,14 +20,14 @@
 
 <script>
 import axios from "axios";
-
 export default {
-  name: "PostComponent",
+  name: "CreatePost",
   data() {
     return {
       formData: {
-        author: "",
+        userId: "",
         title: "",
+        body: "",
       },
     };
   },
@@ -49,3 +45,6 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+</style>
