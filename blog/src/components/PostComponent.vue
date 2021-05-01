@@ -1,5 +1,5 @@
 <template>
-  <h2>Post Component</h2>
+  <h2>Post Component with API</h2>
 
   <div>
     <form @submit.prevent="createPost">
@@ -32,7 +32,7 @@ export default {
   methods: {
     createPost() {
       axios
-        .post("https://jsonplaceholder.typicode.com/posts", this.formData)
+        .post("http://localhost:3000/posts", this.formData)
         .then((response) => {
           console.log(response);
         })
