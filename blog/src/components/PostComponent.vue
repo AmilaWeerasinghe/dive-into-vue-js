@@ -1,11 +1,5 @@
 <template>
   <h2>Post Component</h2>
-  <div>
-    <form @submit="postData" method="POST">
-      <input type="text" name="author" v-model="posts.author" />
-      <input type="text" name="title" v-model="posts.title" />
-    </form>
-  </div>
 
   <div>
     <form @submit.prevent="createPost">
