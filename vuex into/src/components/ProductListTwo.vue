@@ -1,8 +1,8 @@
 <template>
-  <div id="product-list-one">
-    <h1>Product List One</h1>
+  <div id="product-list-two">
+    <h1>Product List Two</h1>
     <ul>
-      <li v-for="product in products">
+      <li v-for="product in saleProducts" v-bind:key="product.name">
         <span class="name">{{ product.name }}</span>
         <span class="price">{{ product.price }}</span>
       </li>
@@ -12,26 +12,30 @@
 
 <script>
 export default {
-  name: "ProductListOne",
-  props: ["products"],
-  data() {
-    return {};
+  name: "ProductListTwo",
+  computed: {
+    products() {
+      return this.$store.state.products;
+    },
+    saleProducts() {
+      return this.$store.getters.saleProducts;
+    },
   },
 };
 </script>
 
 <style scoped>
-#product-list-one {
-  background: #fff8b1;
+#product-list-two {
+  background: #d1e4ff;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
   margin-bottom: 30px;
   padding: 10px 20px;
 }
-#product-list-one ul {
+#product-list-two ul {
   padding: 0;
+  list-style-type: none;
 }
-#product-list-one li {
-  display: inline-block;
+#product-list-two li {
   margin-right: 10px;
   margin-top: 10px;
   padding: 20px;
@@ -39,6 +43,7 @@ export default {
 }
 .price {
   font-weight: bold;
-  color: #e8800c;
+  color: #860ce8;
+  display: block;
 }
 </style>
