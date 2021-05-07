@@ -16,8 +16,8 @@
 </body>
 </html>
 
-<xml id="toolbox" style="display: none">
-    <category name="default">
+<xml id="toolbox" style="display: none" >
+    <category name="default" colour="110">
     <block type="controls_if"></block>
     <block type="controls_repeat_ext"></block>
     <block type="logic_compare"></block>
@@ -25,15 +25,23 @@
     <block type="math_arithmetic"></block>
     <block type="text"></block>
     <block type="text_print"></block>
-    <block type="string_length"></block>
-    <block type="colour_picker"></block>
+    <block type="string_length" ></block>
+    <block type="custom_if_else_test" ></block>
+    
+    <block type="colour_picker" disabled="true"></block>
     </category>
-    <category name="Control">
+    
+    <category name="colour_picker" colour="210">
+      <block type="colour_picker"></block>
+      <label text="A label" web-class="myLabelStyle"></label>
+     
+      </category>
+    <category name="Control" colour="910">
       <block type="controls_if"></block>
       <block type="controls_whileUntil"></block>
       <block type="controls_for">
     </category>
-    <category name="Logic">
+    <category name="Logic" colour="410">
       <block type="logic_compare"></block>
       <block type="logic_operation"></block>
       <block type="logic_boolean"></block>
@@ -42,19 +50,23 @@
   </xml>
   <script>
     var workspace = Blockly.inject('blocklyDiv',
-        {toolbox: document.getElementById('toolbox')});
+        {toolbox: document.getElementById('toolbox'),
+        grid:
+         {spacing: 20,
+          length: 3,
+          colour: '#ccc',
+          snap: true},
+          zoom:
+         {controls: true,
+          wheel: true,
+          startScale: 1.0,
+          maxScale: 3,
+          minScale: 0.3,
+          scaleSpeed: 1.2,
+          pinch: true},
+          trashcan: true});
      
-        Blockly.Blocks['string_length'] = {
-    init: function() {
-      this.appendValueInput('VALUE')
-          .setCheck('String')
-          .appendField('length of');
-      this.setOutput(true, 'Number');
-      this.setColour(160);
-      this.setTooltip('Returns number of letters in the provided text.');
-      this.setHelpUrl('http://www.w3schools.com/jsref/jsref_length_string.asp');
-    }
-  };
+     
   
   Blockly.defineBlocksWithJsonArray([
   // Block for colour picker.
@@ -82,7 +94,44 @@
     "helpUrl": "%{BKY_COLOUR_RANDOM_HELPURL}",
     "style": "colour_blocks",
     "tooltip": "%{BKY_COLOUR_RANDOM_TOOLTIP}"
-  }
+  },
+  //custom if else by me
+  {
+  "type": "custom_if_else_test",
+  "mutator": "controls_if_mutator",
+  "message0": "%1 %2",
+  "args0": [
+    {
+      "type": "field_label_serializable",
+      "name": "input_text",
+      "text": ""
+    },
+    {
+      "type": "input_value",
+      "name": "check_variable"
+    }
+  ],
+  "colour": 15,
+  "tooltip": "",
+  "helpUrl": ""
+},
+  //blockly string_length block manullay configured by me
+  {
+  "type": "string_length",
+  "mutator": "controls_if_mutator",
+  "message0": 'length of %1',
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "VALUE",
+      "check": "String"
+    }
+  ],
+  "output": "Number",
+  "colour": 160,
+  "tooltip": "Returns number of letters in the provided text.",
+  "helpUrl": "http://www.w3schools.com/jsref/jsref_length_string.asp"
+}
 ]);
 
 
@@ -92,5 +141,22 @@
       Blockly.JavaScript.ORDER_FUNCTION_CALL) || '\'\'';
   return [argument0 + '.length', Blockly.JavaScript.ORDER_MEMBER];
 };
+function myUpdateFunction(event) {
+  var code = Blockly.JavaScript.workspaceToCode(workspace);
+  document.getElementById('string_length').value = code;
+  console.log(code)
+}
+workspace.addChangeListener(myUpdateFunction);
+
+//registring the mutator
+Blockly.Extensions.registerMutator(
+  controls_if_mutator, mixinObj, opt_helperFn, opt_blockList);
   </script>
-  
+   <style>
+    .myLabelStyle>.blocklyFlyoutLabelText {
+      font-style: italic;
+      fill: green;
+    }
+    </style>
+
+
