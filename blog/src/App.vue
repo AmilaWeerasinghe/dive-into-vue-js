@@ -3,7 +3,8 @@
   <router-link to="/">Home page</router-link>
   <router-link to="/login">Login page</router-link>
   <router-link to="/about">About page</router-link>
-  <router-link to="/profile/amila">Amila's Profile page</router-link><br />
+  <router-link to="/profile/amila">Amila's Profile page</router-link>
+  <br />
   <router-link to="/profile/arimac">Arimac Profile page</router-link>
   <HelloWorld msg="Welcome arimac Vue.js App" />
   <Home />
@@ -13,30 +14,25 @@
   <ul class="item" v-for="item in list" :key="item.id">
     <li>{{ item.id }}</li>
     <li>{{ item.email }}</li>
-    <li><img :src="item.avatar" /></li>
+    <li>
+      <img :src="item.avatar" />
+    </li>
   </ul>
 
   <h2>Post Component</h2>
   <div>
     <form @submit="postData" method="post">
-      <input
-        type="text"
-        name="author"
-        v-model="posts.author"
-        placeholder="author"
-      /><br />
-      <input
-        type="text"
-        name="title"
-        v-model="posts.title"
-        placeholder="title"
-      /><br />
+      <input type="text" name="author" v-model="posts.author" placeholder="author" />
+      <br />
+      <input type="text" name="title" v-model="posts.title" placeholder="title" />
+      <br />
       <button type="submit">Post</button>
     </form>
   </div>
   {{ posts }}
   <CreatePost></CreatePost>
   <PostComponent></PostComponent>
+  <img :src="imgSrc" />
 </template>
 
 <script>
@@ -61,6 +57,8 @@ export default {
   data() {
     return {
       list: [],
+      imgSrc: "",
+
       posts: {
         author: "",
         title: "",
@@ -71,6 +69,16 @@ export default {
     let result = await axios.get("https://reqres.in/api/users?page=1");
     console.warn(result.data.data);
     this.list = result.data.data;
+
+    //new nasa api
+    var apiKey = "0T8Buy5FS7AosxF1AAtVvCwX5kDrEVDfB1MIlSQW";
+    var url = "https://api.nasa.gov/planetary/apod?api_key=" + apiKey;
+    axios.get(url).then(function (res) {
+      console.log(res);
+    });
+    let nasaData = await axios.get(url);
+    console.log(nasaData.data.url);
+    this.imgSrc = nasaData.data.url;
   },
   async created() {
     // Simple POST request with a JSON body using axios
