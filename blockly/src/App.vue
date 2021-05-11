@@ -1,7 +1,7 @@
 \<template>
   <div id="app">
     <FirstComponent></FirstComponent>
-    <boot-stap-component></boot-stap-component>
+    <BootStapComponent></BootStapComponent>
   </div>
 </template>
 
