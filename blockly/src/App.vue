@@ -2,6 +2,7 @@
   <div id="app">
     <FirstComponent></FirstComponent>
     <BootStapComponent></BootStapComponent>
+    <img :src="imgSrc" :tile="ImgTitle" />
   </div>
 </template>
 
@@ -38,6 +39,7 @@ export default {
     let nasaData = await axios.get(url);
     console.log(nasaData.data.url);
     this.imgSrc = nasaData.data.url;
+    this.ImgTitle = nasaData.data.title;
   },
 };
 </script>
