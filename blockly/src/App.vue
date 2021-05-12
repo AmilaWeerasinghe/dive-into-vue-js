@@ -2,7 +2,7 @@
   <div id="app">
     <FirstComponent></FirstComponent>
     <BootStapComponent></BootStapComponent>
-    <img :src="imgSrc" :tile="ImgTitle" />
+    <NasaAPI></NasaAPI>
   </div>
 </template>
 
