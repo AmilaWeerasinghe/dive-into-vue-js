@@ -1,7 +1,10 @@
 \<template>
   <div id="app">
     <FirstComponent></FirstComponent>
-    <BootStapComponent></BootStapComponent>
+    <transition name="shooting-star">
+      <BootStapComponent v-if="BootState"></BootStapComponent>
+    </transition>
+    <button @click="BootState=!BootState">Show / UnShow</button>
     <NasaAPI></NasaAPI>
   </div>
 </template>
@@ -24,6 +27,7 @@ export default {
     return {
       imgSrc: "",
       ImgTitle: "",
+      BootState: true,
     };
   },
   async mounted() {
@@ -52,5 +56,14 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.shooting-star-leave-to,
+.shooting-star-enter {
+  opacity: 0;
+  transform: translate(150px) rotate(30deg);
+}
+.shooting-star-enter-active,
+.shooting-star-leave-active {
+  transition: all 0.5s ease;
 }
 </style>
