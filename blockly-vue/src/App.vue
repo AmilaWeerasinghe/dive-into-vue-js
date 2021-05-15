@@ -9,6 +9,7 @@
 <script>
 import BlocklyComponent from "./components/BlocklyComponent.vue";
 import "./blocks/stocks";
+import "./blocks/questions";
 import "./prompt";
 
 import BlocklyJS from "blockly/javascript";
@@ -71,6 +72,13 @@ export default {
       <label text="A label" web-class="myLabelStyle"></label>
      
       </category>
+      <category name="Questions" colour="%{BKY_LOOPS_HUE}">
+            <block type="questions_buy_simple"></block>
+            <block type="questions_buy_prog"></block>
+            <block type="questions_fetch_price"></block>
+             <block type="questions_checkbox_on"></block>
+              <block type="example_checkbox"></block>
+          </category>
         </xml>`,
       },
     };
@@ -79,6 +87,23 @@ export default {
     showCode() {
       this.code = BlocklyJS.workspaceToCode(this.$refs["foo"].workspace);
       console.log(this.code);
+    },
+    //validator
+    validate: function (newValue) {
+      var sourceBlock = this.getSourceBlock();
+      sourceBlock.showTextField_ = newValue == "TRUE";
+      sourceBlock.updateTextField();
+
+      return newValue;
+    },
+    //update text field
+    updateTextField: function () {
+      var input = this.getInput("DUMMY");
+      if (this.showTextField_ && !this.getField("TEXT")) {
+        input.appendField(new BlocklyJS.FieldTextInput(), "TEXT");
+      } else if (!this.showTextField_ && this.getField("TEXT")) {
+        input.removeField("TEXT");
+      }
     },
   },
 };
