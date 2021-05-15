@@ -1,30 +1,5 @@
 <template>
   <div id="app">
-    <BlocklyComponent id="blockly1">
-      <block type="controls_ifelse"></block>
-      <block type="logic_compare"></block>
-      <block type="logic_operation"></block>
-      <block type="controls_repeat_ext">
-        <value name="TIMES">
-          <shadow type="math_number">
-            <field name="NUM">10</field>
-          </shadow>
-        </value>
-      </block>
-      <block type="logic_operation"></block>
-      <block type="logic_negate"></block>
-      <block type="logic_boolean"></block>
-      <block type="logic_null" disabled="true"></block>
-      <block type="logic_ternary"></block>
-      <block type="text_charAt">
-        <value name="VALUE">
-          <block type="variables_get">
-            <field name="VAR">text</field>
-          </block>
-        </value>
-      </block>
-    </BlocklyComponent>
-
     <BlocklyComponent id="blockly2" :options="options" ref="foo"></BlocklyComponent>
 
     <button v-on:click="showCode()">Next Trigger</button>
@@ -91,6 +66,11 @@ export default {
             <block type="stock_buy_prog"></block>
             <block type="stock_fetch_price"></block>
           </category>
+          <category name="colour_picker" colour="210">
+      <block type="colour_picker"></block>
+      <label text="A label" web-class="myLabelStyle"></label>
+     
+      </category>
         </xml>`,
       },
     };
@@ -139,7 +119,7 @@ body {
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 50%;
+  width: 80%;
   height: 80%;
 }
 </style>
