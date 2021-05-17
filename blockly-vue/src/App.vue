@@ -78,6 +78,7 @@ export default {
             <block type="questions_fetch_price"></block>
              <block type="questions_checkbox_on"></block>
               <block type="example_checkbox"></block>
+              <field name="FIELDNAME">TRUE</field>
           </category>
         </xml>`,
       },

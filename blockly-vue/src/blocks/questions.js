@@ -168,7 +168,7 @@ Blockly.Blocks['example_checkbox'] = {
     
       updateTextField: function() {
         var input = this.getInput('DUMMY');
-        console.log(input+'from the updateTextField');
+        //console.log(input+'from the updateTextField');
         if (this.showTextField_ && !this.getField('TEXT')) {
           input.appendField(new Blockly.FieldTextInput(), 'TEXT');
         } else if (!this.showTextField_ && this.getField('TEXT')) {
@@ -181,10 +181,10 @@ Blockly.Blocks['example_checkbox'] = {
     var value_input = Blockly.JavaScript.valueToCode(block, 'CHECK2', Blockly.JavaScript.ORDER_ATOMIC);
     var value_check = Blockly.JavaScript.valueToCode(block, 'DUMMY', Blockly.JavaScript.ORDER_ATOMIC);
   
-    var checkbox_check_value = block.getFieldValue('check_value') == 'TRUE';
+    //var checkbox_check_value = block.getFieldValue('check_value') == 'TRUE';
     
     
     // TODO: Assemble JavaScript into code variable.
-    var code = value_check+ value_input+checkbox_check_value;
+    var code = value_check+ value_input;
     return code;
   };
