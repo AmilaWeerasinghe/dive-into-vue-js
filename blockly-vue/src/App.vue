@@ -79,6 +79,9 @@ export default {
              <block type="questions_checkbox_on"></block>
               <block type="example_checkbox"></block>
               <field name="FIELDNAME">TRUE</field>
+              <block type="validator_example"></block>
+               <block type="example_checkbox_validator"></block>
+                <block type="colour_match"></block>
           </category>
         </xml>`,
       },

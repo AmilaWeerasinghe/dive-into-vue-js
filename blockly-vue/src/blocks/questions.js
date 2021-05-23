@@ -188,3 +188,59 @@ Blockly.Blocks['example_checkbox'] = {
     var code = value_check+ value_input;
     return code;
   };
+
+  //validaator example
+  Blockly.Blocks['validator_example'] = {
+    init: function() {
+      // Remove all 'a' characters from the text input's value.
+      var validator = function(newValue) {
+        return newValue.replace(/a/g, '');
+      };
+  
+      var field = new Blockly.FieldTextInput('default');
+      field.setValidator(validator);
+  
+      this.appendDummyInput().appendField(field);
+    }
+  };
+
+
+  //checkbox validator
+  Blockly.Blocks['example_checkbox_validator'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField('checkbox:')
+          .appendField(new Blockly.FieldCheckbox(true), 'FIELDNAME');
+    },
+    validate: function(newValue) {
+      var sourceBlock = this.getSourceBlock();
+      sourceBlock.showTextField_ = newValue == 'TRUE';
+      sourceBlock.updateTextField();
+  
+      return newValue;
+    },
+    updateTextField: function() {
+      var input = this.getInput('DUMMY');
+      if (this.showTextField_ && !this.getField('TEXT')) {
+        input.appendField(new Blockly.FieldTextInput(), 'TEXT');
+      } else if (!this.showTextField_ && this.getField('TEXT')) {
+        input.removeField('TEXT');
+      }
+    }
+  };
+
+
+  //color mtch with blocksource
+  Blockly.Blocks['colour_match'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldColour(
+              null, this.validate
+          ), 'COLOUR');
+      this.setColour(this.getFieldValue('COLOUR'));
+    },
+  
+    validate: function(colourHex) {
+      this.getSourceBlock().setColour(colourHex);
+    }
+  };
