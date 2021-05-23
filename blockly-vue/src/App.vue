@@ -82,6 +82,8 @@ export default {
               <block type="validator_example"></block>
                <block type="example_checkbox_validator"></block>
                 <block type="colour_match"></block>
+                <block type="try_validator"></block>
+                <block type="mySampleBlock"></block>
           </category>
         </xml>`,
       },
