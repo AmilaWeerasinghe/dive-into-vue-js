@@ -84,6 +84,7 @@ export default {
                 <block type="mySampleBlock"></block>
                  <block type="feature"></block>
                  <block type="next"></block>
+          
               
                
           </category>

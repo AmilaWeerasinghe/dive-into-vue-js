@@ -205,7 +205,15 @@ Blockly.Blocks['example_checkbox'] = {
   };
 
 
-  //checkbox validator
+  //checkbox 
+  /*
+  Goal:How to insert the the validator into the append with 
+  the check box input
+  Functions:validator and UpdateTextField (to show a text field) is ready 
+  
+  */
+
+
   Blockly.Blocks['example_checkbox_validator'] = {
     init: function() {
       this.appendDummyInput()
@@ -287,7 +295,7 @@ Blockly.Blocks['example_checkbox'] = {
         var typeOptions = [['Add', 'Add'], ['Append', 'Append']];
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField('Type ')
+            .appendField('Select the operation here ')
             .appendField(new Blockly.FieldDropdown(typeOptions, this.handleTypeSelection.bind(this)), 'typeSelector');
         // Initialize the value of this.columnType (used in updateShape)
         this.columnType = this.getFieldValue('typeSelector');
@@ -402,19 +410,59 @@ Blockly.Blocks['feature'] = {
       //new try
       Blockly.Blocks['next'] = {
         init: function () {
+          var typeOptions = [['Add', 'Add'], ['Append', 'Append']];
           this.appendDummyInput()
-            .appendField("Feature") // just for label
-            .appendField(new Blockly.FieldDropdown([["manufacturer", "feature_manufacturer"], ["profile", "feature_profile"], ["glas", "feature_glas"]]), "category"); // for dropdown values
-          this.appendValueInput("feature_name")
-            .setCheck("String")
-            .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField("Name");
-          this.appendValueInput("feature_prio")
-            .setCheck("Number")
-            .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField("Priorität");
-          this.appendDummyInput()
-            .setAlign(Blockly.ALIGN_RIGHT)
-            .appendField("Versteckt")
-            .appendField(new Blockly.FieldCheckbox("TRUE"), "hidden")}};
+              .setAlign(Blockly.ALIGN_RIGHT)
+              .appendField('Type ')
+              .appendField(new Blockly.FieldDropdown(typeOptions, this.handleTypeSelection.bind(this)), 'typeSelector');
+          // Initialize the value of this.columnType (used in updateShape)
+          this.columnType = this.getFieldValue('typeSelector');
+          // Avoid duplicating code by running updateShape to append your appropriate input
+          //this.updateShape();
+          //@TODO: Do other block configuration stuff like colors, additional inputs, etc. here
+      },
+        handleTypeSelection: function (newType) {
+          // Avoid unnecessary updates if someone clicks the same field twice
+          if(this.columnType !== newType) {
+              // Update this.columnType to the new value
+              this.columnType = newType;
+              // Add or remove fields as appropriate
+              this.updateShape();
+          }
+      },
+    };
       
+
+    // block to take the input 
+
+    /*Blockly.Blocks['motor'] = {
+      init: function() {
+          this.setHelpUrl('http://www.example.com/');
+          this.setColour(65);
+          this.appendDummyInput()
+              .appendField("motor( ");
+          this.appendValueInput("port_number")
+              .setCheck("Number");
+          this.appendDummyInput()
+              .appendField(");");
+          this.setInputsInline(true);
+          this.setPreviousStatement(true);
+          this.setNextStatement(true);
+          this.setTooltip('');
+      },
+      onchange: function() {
+          var port_number = Blockly.C.valueToCode(this, 'port_number', Blockly.C.ORDER_ATOMIC);
+          var valid = VALIDATE.motor_port_number(port_number);
+          if (!valid) 
+              alert("WARNING: The value for the motor port must be 0, 1, 2 or 3.");
+          },
+
+          VALIDATE.motor_port_number :function(port){
+            port=1;
+            if(port==1){
+              return true;
+
+            }
+            
+          }
+      };*/
