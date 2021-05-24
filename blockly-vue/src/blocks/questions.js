@@ -284,7 +284,7 @@ Blockly.Blocks['example_checkbox'] = {
      * Initiate the block. This runs before domToMutation.
      */
     init: function () {
-        var typeOptions = [['Card', 'card'], ['View', 'view']];
+        var typeOptions = [['Add', 'Add'], ['Append', 'Append']];
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField('Type ')
@@ -321,22 +321,22 @@ Blockly.Blocks['example_checkbox'] = {
             this.removeInput('appendToMe');
         }
         // Append the new input based on the value of this.columnType
-        if(this.columnType === 'card') {
-            // if columnType = Card, show the following:
-            //@TODO: define values in cardsList here
-            var cardsList = [['Dummy Option','option']];
+        if(this.columnType === 'Add') {
+            // if columnType = Add, show the following:
+            //@TODO: define values in AddsList here
+            var AddsList = [['Dummy Option','option']];
             this.appendDummyInput('appendToMe')
                 .setAlign(Blockly.ALIGN_RIGHT)
-                .appendField(' Card: ')
-                .appendField(new Blockly.FieldDropdown(cardsList), 'cardValue');
-        } else if (this.columnType === 'view') {
-            //  if columnType = view, show the following:
-            //@TODO: define values in viewsList here
-            var viewsList = [['Dummy Option','option']];
+                .appendField(' Add: ')
+                .appendField(new Blockly.FieldDropdown(AddsList), 'AddValue');
+        } else if (this.columnType === 'Append') {
+            //  if columnType = Append, show the following:
+            //@TODO: define values in AppendsList here
+            var AppendsList = [['Dummy Option','option']];
             this.appendDummyInput()
                 .setAlign(Blockly.ALIGN_RIGHT)
-                .appendField(' View ')
-                .appendField(new Blockly.FieldDropdown(viewsList), 'viewValue');
+                .appendField(' Append ')
+                .appendField(new Blockly.FieldDropdown(AppendsList), 'AppendValue');
         }
     },
     /**
