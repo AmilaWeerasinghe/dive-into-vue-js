@@ -75,15 +75,16 @@ export default {
       <category name="Questions" colour="%{BKY_LOOPS_HUE}">
             <block type="questions_buy_simple"></block>
             <block type="questions_buy_prog"></block>
-            <block type="questions_fetch_price"></block>
              <block type="questions_checkbox_on"></block>
               <block type="example_checkbox"></block>
-              <field name="FIELDNAME">TRUE</field>
               <block type="validator_example"></block>
                <block type="example_checkbox_validator"></block>
                 <block type="colour_match"></block>
                 <block type="try_validator"></block>
                 <block type="mySampleBlock"></block>
+                 <block type="feature"></block>
+              
+               
           </category>
         </xml>`,
       },

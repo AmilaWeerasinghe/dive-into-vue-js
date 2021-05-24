@@ -257,6 +257,7 @@ Blockly.Blocks['example_checkbox'] = {
           .appendField(new Blockly.FieldCheckbox(true), 'FIELDNAME')
           .appendField(new Blockly.FieldTextInput(), 'TEXT')
           .appendField(new Blockly.FieldTextInput(),'text');
+          this.validate
     },
     validate: function(newValue) {
       var sourceBlock = this.getSourceBlock();
@@ -365,3 +366,35 @@ Blockly.Blocks['example_checkbox'] = {
         this.updateShape();
     }
 };
+
+//show or hide
+Blockly.Blocks['feature'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("Feature") // just for label
+      .appendField(new Blockly.FieldDropdown([["manufacturer", "feature_manufacturer"], ["profile", "feature_profile"], ["glas", "feature_glas"]]), "category"); // for dropdown values
+    this.appendValueInput("feature_name")
+      .setCheck("String")
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("Name");
+    this.appendValueInput("feature_prio")
+      .setCheck("Number")
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("Priorität");
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("Versteckt")
+      .appendField(new Blockly.FieldCheckbox("TRUE"), "hidden")}};
+
+
+      Blockly.JavaScript['feature'] = function(block) {
+        var value_input = Blockly.JavaScript.valueToCode(block, 'CHECK2', Blockly.JavaScript.ORDER_ATOMIC);
+        var value_check = Blockly.JavaScript.valueToCode(block, 'DUMMY', Blockly.JavaScript.ORDER_ATOMIC);
+      
+        //var checkbox_check_value = block.getFieldValue('check_value') == 'TRUE';
+        
+        
+        // TODO: Assemble JavaScript into code variable.
+        var code = value_check+ value_input;
+        return code;
+      };
