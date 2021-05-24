@@ -83,6 +83,7 @@ export default {
                 <block type="try_validator"></block>
                 <block type="mySampleBlock"></block>
                  <block type="feature"></block>
+                 <block type="next"></block>
               
                
           </category>

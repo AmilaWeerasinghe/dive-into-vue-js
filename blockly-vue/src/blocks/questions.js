@@ -398,3 +398,23 @@ Blockly.Blocks['feature'] = {
         var code = value_check+ value_input;
         return code;
       };
+
+      //new try
+      Blockly.Blocks['next'] = {
+        init: function () {
+          this.appendDummyInput()
+            .appendField("Feature") // just for label
+            .appendField(new Blockly.FieldDropdown([["manufacturer", "feature_manufacturer"], ["profile", "feature_profile"], ["glas", "feature_glas"]]), "category"); // for dropdown values
+          this.appendValueInput("feature_name")
+            .setCheck("String")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("Name");
+          this.appendValueInput("feature_prio")
+            .setCheck("Number")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("Priorität");
+          this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("Versteckt")
+            .appendField(new Blockly.FieldCheckbox("TRUE"), "hidden")}};
+      
