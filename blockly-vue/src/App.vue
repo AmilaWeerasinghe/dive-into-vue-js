@@ -9,6 +9,10 @@
 <script>
 import BlocklyComponent from "./components/BlocklyComponent.vue";
 import "./blocks/stocks";
+import "./blocks/test_questions";
+import "./blocks/pages";
+import "./blocks/mutatorExample";
+import "./blocks/survey";
 import "./blocks/questions";
 import "./prompt";
 
@@ -72,7 +76,7 @@ export default {
       <label text="A label" web-class="myLabelStyle"></label>
      
       </category>
-      <category name="Questions" colour="%{BKY_LOOPS_HUE}">
+      <category name="Test_Questions" colour="%{BKY_LOOPS_HUE}">
             <block type="questions_buy_simple"></block>
             <block type="questions_buy_prog"></block>
              <block type="questions_checkbox_on"></block>
@@ -83,11 +87,23 @@ export default {
                 <block type="try_validator"></block>
                 <block type="mySampleBlock"></block>
                  <block type="feature"></block>
-                 <block type="next"></block>
-          
-              
-               
+                 <block type="next"></block> 
           </category>
+
+          <category name="Survey" color="%{BKY_LOGIC_HUE}" >
+          <block type="survey"></block>
+          </category>
+
+          <category name="Pages" colour="%{BKY_TEXTS_HUE}">
+          <block type="pages" ></block>
+          <block type="en" ></block>
+          </category>
+
+          <category name="Questions" color="%{BKY_LOGIC_HUE}">
+          <block type="questions" ></block>
+
+          </category>
+
         </xml>`,
       },
     };
@@ -153,7 +169,7 @@ body {
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  height: 95%;
 }
 </style>
