@@ -96,6 +96,7 @@ export default {
 
           <category name="Pages" colour="%{BKY_TEXTS_HUE}">
           <block type="pages" ></block>
+          <mutation mutator_name="pages"></mutation>
           <block type="en" ></block>
           </category>
 
