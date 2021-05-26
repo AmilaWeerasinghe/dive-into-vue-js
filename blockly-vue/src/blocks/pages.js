@@ -50,7 +50,13 @@ Blockly.Blocks['trigger'] = {
 
 
 Blockly.Blocks['pages'] = {
+  //elseifCount_: 0,
+  //elseCount_: 0,
+  //suppressPrefixSuffix: true,
     init: function() {
+     // elseifCount_: 0;
+  //elseCount_: 0;
+  //suppressPrefixSuffix: true;
       this.appendValueInput("page_title")
           .setCheck("String")
           .appendField("Page Title");
@@ -71,10 +77,24 @@ Blockly.Blocks['pages'] = {
     // Mutator functions
     mutationToDom() {
       // Same as previous example
+      if (!this.elseifCount_ && !this.elseCount_) {
+        return null;
+      }
+      var container = Blockly.utils.xml.createElement('mutation');
+      if (this.elseifCount_) {
+        container.setAttribute('elseif', this.elseifCount_);
+      }
+      if (this.elseCount_) {
+        container.setAttribute('else', 1);
+      }
+      return container;
       
   },
-  domToMutation() {
+  domToMutation(xmlElement) {
       // Same as previous example
+      this.elseifCount_ = parseInt(xmlElement.getAttribute('elseif'), 10) || 0;
+    this.elseCount_ = parseInt(xmlElement.getAttribute('else'), 10) || 0;
+    this.rebuildShape_();
      
   },
   decompose(workspace) {
@@ -83,13 +103,13 @@ Blockly.Blocks['pages'] = {
     containerBlock.initSvg();
     var connection = containerBlock.nextConnection;
     for (var i = 1; i <= this.elseifCount_; i++) {
-      var elseifBlock = workspace.newBlock('controls_if_elseif');
+      var elseifBlock = workspace.newBlock('trigger');
       elseifBlock.initSvg();
       connection.connect(elseifBlock.previousConnection);
       connection = elseifBlock.nextConnection;
     }
     if (this.elseCount_) {
-      var elseBlock = workspace.newBlock('controls_if_else');
+      var elseBlock = workspace.newBlock('trigger');
       elseBlock.initSvg();
       connection.connect(elseBlock.previousConnection);
     }
@@ -183,13 +203,21 @@ Blockly.Blocks['pages'] = {
       i++;
     }
     // Rebuild block.
-    for (i = 1; i <= this.elseifCount_; i++) {
-      this.appendValueInput('IF' + i)
+    //for (i = 1; i <= 1; i++) {
+      /*this.appendValueInput('IF' + i)
           .setCheck('Boolean')
           .appendField(Blockly.Msg['CONTROLS_IF_MSG_ELSEIF']);
       this.appendStatementInput('DO' + i)
-          .appendField(Blockly.Msg['CONTROLS_IF_MSG_THEN']);
-    }
+          .appendField(Blockly.Msg['CONTROLS_IF_MSG_THEN']);*/
+          this.appendValueInput("trigger")
+        .setCheck(null)
+        .appendField("trigger");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+   // }
     if (this.elseCount_) {
       this.appendStatementInput('ELSE')
           .appendField(Blockly.Msg['CONTROLS_IF_MSG_ELSE']);

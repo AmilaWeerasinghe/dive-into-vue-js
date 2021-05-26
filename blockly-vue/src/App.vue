@@ -14,6 +14,7 @@ import "./blocks/pages";
 import "./blocks/mutatorExample";
 import "./blocks/survey";
 import "./blocks/questions";
+import "./blocks/checkbox_mutator";
 import "./prompt";
 
 import BlocklyJS from "blockly/javascript";
@@ -98,6 +99,8 @@ export default {
           <block type="pages" ></block>
           <mutation mutator_name="pages"></mutation>
           <block type="en" ></block>
+          <block type="border_mutator" ></block>
+
           </category>
 
           <category name="Questions" color="%{BKY_LOGIC_HUE}">
