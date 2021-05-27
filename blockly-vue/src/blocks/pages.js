@@ -1,37 +1,7 @@
 import * as Blockly from 'blockly/core';
 
 
-//define blocks for the mutator
-/*Blockly.defineBlocksWithJsonArray([ // Mutator blocks. Do not extract.
-  // Block representing the if statement in the controls_if mutator.
-  {
-    "type": "controls_if_if",
-    "message0": "%{BKY_CONTROLS_IF_IF_TITLE_IF}",
-    "nextStatement": null,
-    "enableContextMenu": false,
-    "style": "logic_blocks",
-    "tooltip": "%{BKY_CONTROLS_IF_IF_TOOLTIP}"
-  },
-  // Block representing the else-if statement in the controls_if mutator.
-  {
-    "type": "controls_if_elseif",
-    "message0": "%{BKY_CONTROLS_IF_ELSEIF_TITLE_ELSEIF}",
-    "previousStatement": null,
-    "nextStatement": null,
-    "enableContextMenu": false,
-    "style": "logic_blocks",
-    "tooltip": "%{BKY_CONTROLS_IF_ELSEIF_TOOLTIP}"
-  },
-  // Block representing the else statement in the controls_if mutator.
-  {
-    "type": "controls_if_else",
-    "message0": "%{BKY_CONTROLS_IF_ELSE_TITLE_ELSE}",
-    "previousStatement": null,
-    "enableContextMenu": false,
-    "style": "logic_blocks",
-    "tooltip": "%{BKY_CONTROLS_IF_ELSE_TOOLTIP}"
-  }
-]);*/
+
 
 
 //mutator for pages block contain trigger blocks inside it
@@ -42,20 +12,19 @@ Blockly.Blocks['trigger'] = {
         .appendField("trigger");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour(120);
  this.setTooltip("");
  this.setHelpUrl("");
   }
 };
-
 
 Blockly.Blocks['pages'] = {
   //elseifCount_: 0,
   //elseCount_: 0,
   //suppressPrefixSuffix: true,
     init: function() {
-     // elseifCount_: 0;
-  //elseCount_: 0;
+     this.elseifCount_= 0;
+  this.elseCount_= 0;
   //suppressPrefixSuffix: true;
       this.appendValueInput("page_title")
           .setCheck("String")
@@ -71,7 +40,7 @@ Blockly.Blocks['pages'] = {
       this.setColour(120);
    this.setTooltip("page_block");
    this.setHelpUrl("");
-   this.setMutator(new Blockly.Mutator(['pages','trigger']));
+   this.setMutator(new Blockly.Mutator(['pages','trigger','controls_if_elseif','controls_if_else']));
     },
     // Mutator functions
     // Mutator functions
@@ -204,11 +173,6 @@ Blockly.Blocks['pages'] = {
     }
     // Rebuild block.
     //for (i = 1; i <= 1; i++) {
-      /*this.appendValueInput('IF' + i)
-          .setCheck('Boolean')
-          .appendField(Blockly.Msg['CONTROLS_IF_MSG_ELSEIF']);
-      this.appendStatementInput('DO' + i)
-          .appendField(Blockly.Msg['CONTROLS_IF_MSG_THEN']);*/
           this.appendValueInput("trigger")
         .setCheck(null)
         .appendField("trigger");
@@ -235,6 +199,38 @@ Blockly.Blocks['pages'] = {
   reshape(){
       // Same as previous example
   }
+ // Mutator functions
+    /*mutationToDom() {
+        // Same as previous example
+        let container = document.createElement('mutation');
+        container.setAttribute('foo', 3.14);
+
+
+         var test=0;
+        //var test=container.getAttribute();
+        console.warn(test);
+        if (this.elseifCount_) {
+          container.setAttribute('trigger', this.test);
+        }
+        //var trig=container.getAttribute('trigger');
+
+        return container;
+    },
+    domToMutation(xmlElement) {
+        // Same as previous example
+        //let foo = xmlElement.getAttribute('foo');
+    },
+    decompose(workspace) {
+        // Decomposeyour block here
+    },
+    compose(containerBlock) {
+        // Compose your block here
+    },
+    // Aux functions
+    reshape(param){
+        // Same as previous example
+    }*/
+  
   
   };
 

@@ -14,6 +14,7 @@ import "./blocks/pages";
 import "./blocks/mutatorExample";
 import "./blocks/survey";
 import "./blocks/questions";
+import "./blocks/test";
 import "./blocks/checkbox_mutator";
 import "./prompt";
 
@@ -95,7 +96,8 @@ export default {
           <block type="survey"></block>
           </category>
 
-          <category name="Pages" colour="%{BKY_TEXTS_HUE}">
+
+<category name="Pages" colour="%{BKY_TEXTS_HUE}">
           <block type="pages" ></block>
           <mutation mutator_name="pages"></mutation>
           <block type="en" ></block>
@@ -105,7 +107,12 @@ export default {
 
           <category name="Questions" color="%{BKY_LOGIC_HUE}">
           <block type="questions" ></block>
+          <block type="lists_create_with" ></block>
 
+          </category>
+          <category name="eg mutations" color="%{BKY_LOGIC_HUE}">
+          <block type="lists_create_with" ></block>
+          <block type="NewPages" ></block>
           </category>
 
         </xml>`,
