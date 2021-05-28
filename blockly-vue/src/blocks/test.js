@@ -169,7 +169,7 @@ Blockly.Blocks['lists_create_with'] = {
 Blockly.Blocks['NewPages'] = {
     
       init: function() {
-        this.itemCount_ = 1;
+        this.itemCount_ = 0;
         this.updateShape_();
         this.setOutput(true, 'Array');
         this.appendValueInput("page_title")
@@ -273,15 +273,15 @@ Blockly.Blocks['NewPages'] = {
       if (this.itemCount_ && this.getInput('EMPTY')) {
         this.removeInput('EMPTY');
       } else if (!this.itemCount_ && !this.getInput('EMPTY')) {
-        this.appendDummyInput('EMPTY')
-            .appendField(Blockly.Msg.LISTS_CREATE_EMPTY_TITLE);
+        //this.appendDummyInput('EMPTY')
+           // .appendField(Blockly.Msg.LISTS_CREATE_EMPTY_TITLE);
       }
       // Add new inputs.
       for (var i = 0; i < this.itemCount_; i++) {
         if (!this.getInput('ADD' + i)) {
           var input = this.appendValueInput('ADD' + i).appendField("trigger");
           if (i == 0) {
-            input.appendField(Blockly.Msg.LISTS_CREATE_WITH_INPUT_WITH);
+            //input.appendField(Blockly.Msg.LISTS_CREATE_WITH_INPUT_WITH);
           }
         }
       }
