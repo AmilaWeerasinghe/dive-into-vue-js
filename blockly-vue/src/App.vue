@@ -13,6 +13,7 @@ import "./blocks/test_questions";
 import "./blocks/pages";
 import "./blocks/mutatorExample";
 import "./blocks/survey";
+import "./blocks/trigger";
 import "./blocks/questions";
 import "./blocks/test";
 import "./blocks/checkbox_mutator";
@@ -116,6 +117,9 @@ export default {
           <block type="NewPages1" ></block>
           <block type="Newquestions1" ></block>
 
+          </category>
+          <category name="triggers">
+          <block type="navigate_trigger"></block>
           </category>
 
         </xml>`,
