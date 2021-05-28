@@ -98,8 +98,8 @@ export default {
 
 
 <category name="Pages" colour="%{BKY_TEXTS_HUE}">
-          <block type="pages" ></block>
-          <mutation mutator_name="pages"></mutation>
+          <block type="NewPages" ></block>
+          
           <block type="en" ></block>
           <block type="border_mutator" ></block>
 
@@ -108,11 +108,14 @@ export default {
           <category name="Questions" color="%{BKY_LOGIC_HUE}">
           <block type="questions" ></block>
           <block type="lists_create_with" ></block>
+           <block type="Newquestions" ></block>
 
           </category>
           <category name="eg mutations" color="%{BKY_LOGIC_HUE}">
           <block type="lists_create_with" ></block>
-          <block type="NewPages" ></block>
+          <block type="NewPages1" ></block>
+          <block type="Newquestions1" ></block>
+
           </category>
 
         </xml>`,
