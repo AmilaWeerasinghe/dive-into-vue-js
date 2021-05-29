@@ -463,3 +463,154 @@ Blockly.Blocks['Newtriggerq'] = {
       this.contextMenu = false;
     }
   };
+
+  //ui tigger drop down
+  Blockly.Blocks["test1"] = {
+    init: function() {
+        let count = new Blockly.FieldDropdown(
+            [
+                ["1", "1"],
+                ["2", "2"],
+                ["3", "3"],
+                ["4", "4"],
+                ["5", "5"],
+                ["6", "6"],
+                ["7", "7"],
+            ],
+            function(a) {
+                this.sourceBlock_.updateShape_(a);
+            },
+        );
+        this.appendDummyInput("Antoine")
+            .appendField("Count:")
+            .appendField(count, "count")
+            .appendField(new Blockly.FieldDropdown(day))
+            .appendField("The rest of the block");
+    }
+  };
+
+
+ //varibles test
+
+ // Block for variable getter.
+Blockly.Blocks['variables_get'] = {
+  init: function() {
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldVariable("VAR_NAME"), "FIELD_NAME");
+    this.setOutput(true, null);
+    
+  }
+};
+
+// Block for variable setter.
+Blockly.Blocks['variables_set'] = {
+  init: function() {
+    this.appendValueInput("NAME")
+        .setCheck(null)
+        .appendField("set")
+        .appendField(new Blockly.FieldVariable("VAR_NAME"), "FIELD_NAME")
+        .appendField("to");
+    this.setOutput(true, null);
+
+  }
+};
+
+//check box input
+Blockly.Blocks['check_box'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("red")
+        .appendField(new Blockly.FieldCheckbox("TRUE"), "red");
+    this.appendDummyInput()
+        .appendField("blue")
+        .appendField(new Blockly.FieldCheckbox("TRUE"), "blue");
+    this.setOutput(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.JavaScript['check_box'] = function(block) {
+  var checkbox_red = block.getFieldValue('red');
+  var checkbox_blue = block.getFieldValue('blue') == 'TRUE';
+  if(checkbox_red==='TRUE'){
+
+
+  };
+  // TODO: Assemble JavaScript into code variable.
+  var code = checkbox_blue+checkbox_red
+  if(checkbox_red=== 'TRUE'){
+    console.warn('red selected');
+  };
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+Blockly.Blocks['check_set'] = {
+  init: function() {
+    this.appendValueInput("NAME")
+        .setCheck(null)
+        .appendField("set")
+        .appendField(new Blockly.FieldCheckbox("TRUE"), "red")
+        .appendField("to");
+    this.setOutput(true, null);
+    //var featureName = element.getFieldValue("red");
+   // var checkbox_red = Blockly.block.getFieldValue('red') == 'TRUE';
+  //var checkbox_blue = block.getFieldValue('blue') == 'TRUE';
+
+  }
+};
+
+
+
+//example
+Blockly.Blocks['stop_actions'] = {
+  init: function() {
+      var actions_descriptors = [
+          ['HOLD', 'hold'],
+          ['COAST', 'coast']
+      ];
+      this.appendDummyInput()
+          .appendField(new Blockly.FieldDropdown(actions_descriptors), 'action')
+          .setAlign(Blockly.ALIGN_RIGHT);
+      this.setOutput(true, 'String');
+      this.setColour(60);
+      this.setTooltip('Select the stop action');
+  }
+};
+
+Blockly.Blocks['motor'] = {
+  init: function() {
+      this.appendValueInput('arg_stop_action')
+          .appendField('Stop action')
+          .setAlign(Blockly.ALIGN_RIGHT);
+  },
+
+  onchange: function(e) {
+      // !
+      this.getInputTargetBlock('arg_stop_action').getFieldValue('action');
+  }
+};
+
+
+//test check
+Blockly.Blocks['feature'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField("Feature") // just for label
+      .appendField(new Blockly.FieldDropdown([["manufacturer", "feature_manufacturer"], ["profile", "feature_profile"], ["glas", "feature_glas"]]), "category"); // for dropdown values
+    this.appendValueInput("feature_name")
+      .setCheck("String")
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("Name");
+    this.appendValueInput("feature_prio")
+      .setCheck("Number")
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("Priorität");
+    this.appendDummyInput()
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField("Versteckt")
+      .appendField(new Blockly.FieldCheckbox("TRUE"), "hidden");
+    }
+  }

@@ -116,10 +116,20 @@ export default {
           <block type="lists_create_with" ></block>
           <block type="NewPages1" ></block>
           <block type="Newquestions1" ></block>
+          <block type="variables_get" ></block>
+          <block type="variables_set" ></block>
+          <block type="check_box" ></block>
+          <block type="check_set" ></block>
+          <block type="feature" ></block>
+          
 
           </category>
           <category name="triggers">
           <block type="navigate_trigger"></block>
+          <block type="ui_trigger"></block>
+          <block type="variable_get" ></block>
+          <block type="variable_set" ></block>
+          
           </category>
 
         </xml>`,
