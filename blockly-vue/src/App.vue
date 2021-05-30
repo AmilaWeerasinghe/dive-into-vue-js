@@ -129,6 +129,7 @@ export default {
           <block type="ui_trigger"></block>
           <block type="variable_get" ></block>
           <block type="variable_set" ></block>
+          <block type="check_box_to_array" ></block>
           
           </category>
 

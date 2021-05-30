@@ -533,7 +533,8 @@ Blockly.Blocks['check_box'] = {
 
 Blockly.JavaScript['check_box'] = function(block) {
   var checkbox_red = block.getFieldValue('red');
-  var checkbox_blue = block.getFieldValue('blue') == 'TRUE';
+  var checkbox_blue = block.getFieldValue('blue');
+  var selected_array=[];
   if(checkbox_red==='TRUE'){
 
 
@@ -542,7 +543,17 @@ Blockly.JavaScript['check_box'] = function(block) {
   var code = checkbox_blue+checkbox_red
   if(checkbox_red=== 'TRUE'){
     console.warn('red selected');
+    //push to array
+    selected_array.push('red');
+  }
+  if(checkbox_blue ==='TRUE'){
+    console.warn('blue selected');
+    //push to array
+    selected_array.push('blue');
+
   };
+  console.log(selected_array);
+
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
