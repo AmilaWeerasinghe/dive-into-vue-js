@@ -29,6 +29,10 @@ export default {
   data() {
     return {
       code: "",
+      startxml: [
+        <block type="controls_if"></block>,
+        <block type="logic_compare"></block>,
+      ],
       options: {
         media: "media/",
         grid: {
@@ -141,23 +145,6 @@ export default {
     showCode() {
       this.code = BlocklyJS.workspaceToCode(this.$refs["foo"].workspace);
       console.log(this.code);
-    },
-    //validator
-    validate: function (newValue) {
-      var sourceBlock = this.getSourceBlock();
-      sourceBlock.showTextField_ = newValue == "TRUE";
-      sourceBlock.updateTextField();
-
-      return newValue;
-    },
-    //update text field
-    updateTextField: function () {
-      var input = this.getInput("DUMMY");
-      if (this.showTextField_ && !this.getField("TEXT")) {
-        input.appendField(new BlocklyJS.FieldTextInput(), "TEXT");
-      } else if (!this.showTextField_ && this.getField("TEXT")) {
-        input.removeField("TEXT");
-      }
     },
   },
 };

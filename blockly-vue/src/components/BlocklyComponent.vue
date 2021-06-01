@@ -9,6 +9,8 @@
 
 <script>
 import Blockly from "blockly";
+import "../blocks/survey";
+import "../blocks/pages";
 
 export default {
   name: "BlocklyComponent",
@@ -16,6 +18,7 @@ export default {
   data() {
     return {
       workspace: null,
+      xml_text: null,
     };
   },
   mounted() {
@@ -24,6 +27,13 @@ export default {
       options.toolbox = this.$refs["blocklyToolbox"];
     }
     this.workspace = Blockly.inject(this.$refs["blocklyDiv"], options);
+    this.xml_text =
+      '<xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="display: none">' +
+      '  <block type="survey"></block>' +
+      '<block type="NewPages" ></block>' +
+      "</xml>";
+    var xml = Blockly.Xml.textToDom(this.xml_text);
+    Blockly.Xml.domToWorkspace(xml, this.workspace);
   },
 };
 </script>
