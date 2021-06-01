@@ -13,7 +13,8 @@
 <body>
     <h1>Hello Blockly test</h1>
     <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
-</body>
+<button onclick="getXML()">get xml</button>
+  </body>
 </html>
 
 <xml id="toolbox" style="display: none" >
@@ -50,9 +51,14 @@
       <block type="logic_operation"></block>
       <block type="logic_boolean"></block>
     </category>
+
+    <category name="custom">
+      <block type"survey"></block>
+    </category>
     
   </xml>
   <script>
+    
     var workspace = Blockly.inject('blocklyDiv',
         {toolbox: document.getElementById('toolbox'),
         grid:
@@ -69,6 +75,26 @@
           scaleSpeed: 1.2,
           pinch: true},
           trashcan: true});
+
+          function getXML(){
+            console.log(Blockly.Xml.workspaceToDom(workspace));
+
+
+          }
+
+          Blockly.Blocks['survey'] = {
+  init: function() {
+    this.appendValueInput("survey_name")
+        .setCheck(null)
+        .appendField("Survey Name");
+    this.appendStatementInput("survey_process")
+        .setCheck(null)
+        .appendField("Process");
+    this.setColour(260);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
 
          
      
@@ -164,5 +190,7 @@ Blockly.Extensions.registerMutator(
       fill: green;
     }
     </style>
+
+
 
 

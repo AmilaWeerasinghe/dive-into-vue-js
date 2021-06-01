@@ -112,13 +112,13 @@ Blockly.JavaScript['check_box_to_array'] = function(block) {
     //push to array
     selected_array.push('blue');
 
-  };
+  }
   if(checkbox_green ==='TRUE'){
     console.warn('green selected');
     //push to array
     selected_array.push('green');
 
-  };
+  }
   //log the array to console
   console.log('Colors selected :'+selected_array);
 

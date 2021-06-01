@@ -8,6 +8,7 @@
 
 <script>
 import BlocklyComponent from "./components/BlocklyComponent.vue";
+import Blockly from "blockly/core";
 import "./blocks/stocks";
 import "./blocks/test_questions";
 import "./blocks/pages";
@@ -17,6 +18,7 @@ import "./blocks/trigger";
 import "./blocks/questions";
 import "./blocks/test";
 import "./blocks/checkbox_mutator";
+import "./blocks/composite";
 import "./prompt";
 
 import BlocklyJS from "blockly/javascript";
@@ -136,6 +138,9 @@ export default {
           <block type="check_box_to_array" ></block>
           
           </category>
+          <category name="composite">
+          <block type="compo"></block>
+          </category>
 
         </xml>`,
       },
@@ -145,6 +150,10 @@ export default {
     showCode() {
       this.code = BlocklyJS.workspaceToCode(this.$refs["foo"].workspace);
       console.log(this.code);
+      //console.log(Blockly.Xml.workspaceToDom(this.workspace));
+    },
+    getXml() {
+      console.log(Blockly.Xml.workspaceToDom(this.workspace));
     },
   },
 };

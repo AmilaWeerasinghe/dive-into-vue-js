@@ -633,3 +633,18 @@ Blockly.Constants.Logic.LOGIC_TERNARY_ONCHANGE_MIXIN = {
 
 Blockly.Extensions.registerMixin('logic_ternary',
     Blockly.Constants.Logic.LOGIC_TERNARY_ONCHANGE_MIXIN);
+
+
+    Blockly.Blocks['survey'] = {
+      init: function() {
+        this.appendValueInput("survey_name")
+            .setCheck(null)
+            .appendField("Survey Name");
+        this.appendStatementInput("survey_process")
+            .setCheck(null)
+            .appendField("Process");
+        this.setColour(260);
+     this.setTooltip("");
+     this.setHelpUrl("");
+      }
+    };
