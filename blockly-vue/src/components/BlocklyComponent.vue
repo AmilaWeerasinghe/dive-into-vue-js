@@ -27,6 +27,7 @@ export default {
       options.toolbox = this.$refs["blocklyToolbox"];
     }
     this.workspace = Blockly.inject(this.$refs["blocklyDiv"], options);
+    //add xml to load at the initial workspace
     this.xml_text =
       '<xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="display: none">' +
       '  <block type="survey"></block>' +

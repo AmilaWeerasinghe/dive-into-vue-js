@@ -70,16 +70,7 @@
           pinch: true},
           trashcan: true});
 
-          //create xml to pass to workspace
-          workspace = Blockly.inject('blocklyDiv', options);
-          // All toolbox-specific XML has been removed.
-        var xml_text =
-          '<xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="display: none">' +
-          '  <block type="logic_compare"></block>' 
-          '</xml>';
-          var xml = Blockly.Xml.textToDom(xml_text);
-        // Where workspace is the above workspace var
-        Blockly.Xml.domToWorkspace(xml, workspace);
+         
      
      
   
