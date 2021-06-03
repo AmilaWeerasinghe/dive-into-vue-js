@@ -26,14 +26,14 @@ import BlocklyJS from "blockly/javascript";
 export default {
   name: "app",
   components: {
-    BlocklyComponent,
+    BlocklyComponent
   },
   data() {
     return {
       code: "",
       startxml: [
         <block type="controls_if"></block>,
-        <block type="logic_compare"></block>,
+        <block type="logic_compare"></block>
       ],
       options: {
         media: "media/",
@@ -41,7 +41,7 @@ export default {
           spacing: 25,
           length: 3,
           colour: "#ccc",
-          snap: true,
+          snap: true
         },
         toolbox: `<xml>
           <category name="Logic" colour="%{BKY_LOGIC_HUE}">
@@ -142,8 +142,8 @@ export default {
           <block type="compo"></block>
           </category>
 
-        </xml>`,
-      },
+        </xml>`
+      }
     };
   },
   methods: {
@@ -154,8 +154,8 @@ export default {
     },
     getXml() {
       console.log(Blockly.Xml.workspaceToDom(this.workspace));
-    },
-  },
+    }
+  }
 };
 </script>
 
